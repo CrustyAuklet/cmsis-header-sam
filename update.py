@@ -74,7 +74,7 @@ for family in sam_families:
                 else:
                     dest = Path(f.filename)
                 dest.parent.mkdir(parents=True, exist_ok=True)
-                with z.open(f, "r") as rfile, dest.open("w") as wfile:
+                with z.open(f, "r") as rfile, dest.open("w", encoding='utf-8') as wfile:
                     wfile.writelines(l.rstrip().decode("utf-8")+"\n" for l in rfile.readlines())
 
 def update_readme(readme, family, new_version, new_date, new_url):
